@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "poppins", sans-serif;
+}
+
+.d_flex {
+  display: flex;
+}
+
+.container {
+  flex-direction: column;
+  align-items: center;
+}
+
+.pageTitle {
+  font-size: 2rem;
+}
+
+#book-form {
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.title {
+  padding-top: 30px;
+  text-align: center;
+  font-size: 23px;
+  font-weight: 800;
+  padding-bottom: 10px;
+}
+
+.footer {
+  border: 2px solid rgb(5, 5, 5);
+  background-image: url("back.jpg");
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding-top: 7px;
+  padding-left: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+}

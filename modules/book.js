@@ -1,49 +1,48 @@
-class Book {
+export default class Book {
   constructor(title, author) {
     this.title = title;
     this.author = author;
   }
 
-  add () {
+  add() {
     const bookObj = { allbook: [] };
-    if (JSON.parse(localStorage.getItem("books")) == null) {
-      localStorage.setItem("books", JSON.stringify(bookObj));
+    if (JSON.parse(localStorage.getItem('books')) == null) {
+      localStorage.setItem('books', JSON.stringify(bookObj));
     }
 
-    const obj = JSON.parse(localStorage.getItem("books"));
+    const obj = JSON.parse(localStorage.getItem('books'));
 
-    if (this.title.value !== "" && this.author.value !== "") {
+    if (this.title.value !== '' && this.author.value !== '') {
       obj.allbook.push({
         title: this.title,
         author: this.author,
       });
     }
-    localStorage.setItem("books", JSON.stringify(obj));
+    localStorage.setItem('books', JSON.stringify(obj));
   }
 
   static deleteBook(el) {
-    if (el.classList.contains("delete")) {
-      const text =
-        el.parentElement.parentElement.firstChild.innerText.split(".")[0];
+    if (el.classList.contains('delete')) {
+      const text = el.parentElement.parentElement.firstChild.innerText.split('.')[0];
       el.parentElement.parentElement.remove();
       // Added code to remove
-      const obj = JSON.parse(localStorage.getItem("books"));
+      const obj = JSON.parse(localStorage.getItem('books'));
       const books = { allbook: [] };
       obj.allbook.forEach((el) => {
         if (`"${el.title}` !== text) {
           books.allbook.push(el);
         }
       });
-      localStorage.setItem("books", JSON.stringify(books));
+      localStorage.setItem('books', JSON.stringify(books));
     }
   }
 
   static getBooks() {
     let books;
-    if (localStorage.getItem("books") === null) {
+    if (localStorage.getItem('books') === null) {
       books = [];
     } else {
-      books = JSON.parse(localStorage.getItem("books"));
+      books = JSON.parse(localStorage.getItem('books'));
     }
 
     return books;
@@ -52,6 +51,6 @@ class Book {
   static addBook(book) {
     const books = Book.getBooks();
     books.push(book);
-    localStorage.setItem("books", JSON.stringify(books));
+    localStorage.setItem('books', JSON.stringify(books));
   }
 }

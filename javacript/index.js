@@ -1,7 +1,7 @@
 // /index.js
 
 import Book from '../modules/book.js';
-import Date from "../modules/date.js";
+import getDate from '../modules/date.js';
 
 const bookForm = document.querySelector('#book-form');
 const bookTitle = document.querySelector('#title');
@@ -9,7 +9,7 @@ const bookAuthor = document.querySelector('#author');
 const booksList = document.querySelector('#book-list');
 // Events:
 
-function display() {
+const display = () => {
   const obj = JSON.parse(localStorage.getItem('books'));
   if (obj !== undefined) {
     // Added below and added a fullstop to separate title
@@ -21,7 +21,7 @@ function display() {
             `;
     });
   }
-}
+};
 bookForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const newBook = new Book(bookTitle.value, bookAuthor.value);
@@ -36,6 +36,8 @@ bookForm.addEventListener('submit', (e) => {
 document.querySelector('#book-list').addEventListener('click', (e) => {
   Book.deleteBook(e.target);
 });
+
+getDate.displayLuxon();
 
 const newBook = document.getElementById('newbookLi');
 const myForm = document.getElementById('myForm');
